@@ -1,0 +1,214 @@
+/* ============================================================
+   Solvium Design Tokens — Tema claro (default) y oscuro
+   ============================================================ */
+
+/* ── Variables de tema CLARO (default) ── */
+[data-theme="light"],
+:root {
+  /* Fondos */
+  --bg-base:        rgb(250, 245, 255);      /* lavanda muy claro */
+  --bg-surface:     rgb(243, 235, 255);      /* lavanda suave */
+  --bg-card:        rgba(255, 255, 255, 0.85);
+  --bg-card-hover:  rgba(255, 255, 255, 0.95);
+  --nav-bg:         rgba(250, 245, 255, 0.92);
+  --mobile-menu-bg: rgba(250, 245, 255, 0.97);
+  --section-alt-bg: linear-gradient(to bottom, rgb(250,245,255), rgb(240,232,255), rgb(250,245,255));
+
+  /* Texto */
+  --text-primary:   rgb(18, 3, 26);
+  --text-secondary: rgba(18, 3, 26, 0.60);
+  --text-muted:     rgba(18, 3, 26, 0.38);
+  --text-nav:       rgba(18, 3, 26, 0.70);
+
+  /* Bordes */
+  --border-subtle:  rgba(97, 15, 143, 0.12);
+  --border-brand:   rgba(97, 15, 143, 0.25);
+  --border-active:  rgba(97, 15, 143, 0.45);
+
+  /* Sombras */
+  --shadow-card:    0 4px 24px rgba(97, 15, 143, 0.08);
+  --shadow-hover:   0 8px 40px rgba(97, 15, 143, 0.15);
+  --glow-color:     rgba(97, 15, 143, 0.20);
+
+  /* Grid decorativo */
+  --grid-color:     rgba(97, 15, 143, 0.06);
+
+  /* Scrollbar */
+  --scrollbar-bg:   rgb(240, 230, 255);
+  --scrollbar-thumb: rgba(97, 15, 143, 0.35);
+
+  /* Selección */
+  --selection-bg:   rgba(97, 15, 143, 0.20);
+}
+
+/* ── Variables de tema OSCURO ── */
+[data-theme="dark"] {
+  /* Fondos */
+  --bg-base:        rgb(18, 3, 26);
+  --bg-surface:     rgb(25, 5, 36);
+  --bg-card:        rgba(18, 3, 26, 0.60);
+  --bg-card-hover:  rgba(97, 15, 143, 0.08);
+  --nav-bg:         rgba(18, 3, 26, 0.85);
+  --mobile-menu-bg: rgba(25, 5, 36, 0.97);
+  --section-alt-bg: linear-gradient(to bottom, rgb(18,3,26), rgb(25,5,36), rgb(18,3,26));
+
+  /* Texto */
+  --text-primary:   rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.58);
+  --text-muted:     rgba(255, 255, 255, 0.32);
+  --text-nav:       rgba(255, 255, 255, 0.68);
+
+  /* Bordes */
+  --border-subtle:  rgba(97, 15, 143, 0.22);
+  --border-brand:   rgba(97, 15, 143, 0.35);
+  --border-active:  rgba(130, 30, 180, 0.55);
+
+  /* Sombras */
+  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.30);
+  --shadow-hover:   0 8px 40px rgba(97, 15, 143, 0.25);
+  --glow-color:     rgba(97, 15, 143, 0.35);
+
+  /* Grid decorativo */
+  --grid-color:     rgba(97, 15, 143, 0.04);
+
+  /* Scrollbar */
+  --scrollbar-bg:   rgb(18, 3, 26);
+  --scrollbar-thumb: rgba(97, 15, 143, 0.55);
+
+  /* Selección */
+  --selection-bg:   rgba(97, 15, 143, 0.40);
+}
+
+/* ── Brand vars (constantes, no cambian con el tema) ── */
+:root {
+  --brand-500:  rgb(97, 15, 143);
+  --brand-400:  rgb(130, 30, 180);
+  --brand-300:  rgb(170, 70, 210);
+  --accent-300: rgb(200, 130, 255);
+  --accent-200: rgb(224, 180, 255);
+}
+
+/* ============================================================
+   Clases semánticas de tema
+   ============================================================ */
+
+.bg-theme           { background-color: var(--bg-base); }
+.bg-theme-surface   { background-color: var(--bg-surface); }
+.bg-theme-card      { background-color: var(--bg-card); }
+.bg-section-alt     { background: var(--section-alt-bg); }
+.nav-bg-scrolled    { background-color: var(--nav-bg); }
+.mobile-menu-bg     { background-color: var(--mobile-menu-bg); }
+
+.text-theme         { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted   { color: var(--text-muted); }
+.text-nav           { color: var(--text-nav); }
+
+.border-theme        { border-color: var(--border-subtle); }
+.border-theme-brand  { border-color: var(--border-brand); }
+.border-theme-active { border-color: var(--border-active); }
+
+/* ── Backgrounds semánticos extra ── */
+.bg-brand-subtle    { background-color: rgba(97, 15, 143, 0.08); }
+.bg-brand-subtle-hover:hover { background-color: rgba(97, 15, 143, 0.14); }
+
+/* ── Hover: border-theme-active ── */
+.hover\:border-theme-active:hover { border-color: var(--border-active); }
+.hover\:border-brand-400:hover    { border-color: rgba(130, 30, 180, 0.55); }
+.hover\:border-brand-500\/40:hover { border-color: rgba(97, 15, 143, 0.40); }
+
+/* ── Glassmorphism estándar (theme-aware) ── */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.glass-card:hover,
+.glass-card-active,
+.hover\:glass-card-active:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Gradiente de texto de marca ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-300), var(--brand-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-wide {
+  background: linear-gradient(135deg, var(--accent-200), var(--brand-300), var(--brand-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Gradientes de fondo ── */
+.gradient-brand {
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-400));
+}
+
+.gradient-brand-wide {
+  background: linear-gradient(135deg, #4a0b6e, var(--brand-400), #b060f0);
+}
+
+/* ── Sombra glow ── */
+.glow-accent {
+  box-shadow: 0 0 30px var(--glow-color);
+}
+
+.glow-accent-strong {
+  box-shadow: 0 0 50px var(--glow-color), 0 0 100px rgba(97, 15, 143, 0.15);
+}
+
+/* ── Grid decorativo ── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Animaciones ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ── Transición global suave al cambiar de tema ── */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+/* Excluir elementos que no deben transicionarse */
+svg, path, .no-transition {
+  transition: none !important;
+}
