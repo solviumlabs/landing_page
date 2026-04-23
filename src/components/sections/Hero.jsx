@@ -4,13 +4,9 @@ import Button from '@components/common/Button';
 import Badge  from '@components/common/Badge';
 import { COMPANY, STATS, HERO_CTAS } from '@data/meta';
 import { useLang } from '@utils/LangContext';
+import AnimatedLogo from '@components/common/AnimatedLogo';
 
-/* Tarjetas flotantes decorativas — no traducibles, son iconográficas */
-const FLOAT_CARDS = [
-  { label: { es: 'SaaS en producción',     en: 'SaaS in production'   }, sub: { es: 'Arquitectura multi-tenant', en: 'Multi-tenant architecture' }, color: 'from-brand-500 to-brand-400' },
-  { label: { es: 'API documentada',        en: 'Documented API'       }, sub: { es: 'OpenAPI + rate limiting',   en: 'OpenAPI + rate limiting'   }, color: 'from-accent-400 to-brand-300' },
-  { label: { es: 'Sistema personalizado',  en: 'Custom system'        }, sub: { es: 'ERP / CRM a medida',        en: 'Custom ERP / CRM'          }, color: 'from-brand-400 to-accent-400' },
-];
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const { t } = useLang();
@@ -20,10 +16,17 @@ export default function Hero() {
   const keyWord    = 'software';
   const parts      = taglineRaw.split(keyWord);
 
+  // Variantes para animaciones premium
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-24 pb-20 px-6 overflow-hidden"
+      className="relative h-[100dvh] min-h-[650px] flex items-center pt-20 pb-10 px-6 overflow-hidden"
     >
       {/* ── Fondos decorativos ── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -34,78 +37,66 @@ export default function Hero() {
         <div className="absolute inset-0 grid-bg opacity-100" />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center text-center mt-10">
 
-          {/* ── Columna izquierda: Copy ── */}
-          <div className="space-y-8">
-            <Badge icon={Zap}>{t(COMPANY.subtitle)}</Badge>
-
-            <h1 className="text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-theme">
-              {parts[0]}
-              <span className="gradient-text">{keyWord}</span>
-              {parts[1]}
-            </h1>
-
-            <p className="text-lg text-theme-secondary leading-relaxed max-w-lg">
-              {t(COMPANY.description)}
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
-              <Button href={HERO_CTAS.primary.href} size="lg">
-                {t(HERO_CTAS.primary.label)}
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-              <Button href={HERO_CTAS.secondary.href} variant="secondary" size="lg">
-                {t(HERO_CTAS.secondary.label)}
-              </Button>
+        <h1 className="mt-8 mb-10 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-theme">
+          <motion.span
+            className="inline-block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
+          >
+            {parts[0].trim()}
+          </motion.span>
+          <br />
+          <div className="relative inline-block pl-[1.4em] md:pl-[1.7em] lg:pl-[2.2em]">
+            {/* Logo absoluto, comienza primero (delay 0.2) */}
+            <div className="absolute left-0 top-1/2 -translate-x-[15%] -translate-y-[52%] w-[1.8em] h-[1.8em] md:w-[2.2em] md:h-[2.2em] lg:w-[2.8em] lg:h-[2.8em] pointer-events-none">
+              <AnimatedLogo delay={0.2} />
             </div>
-
-            {/* Stats */}
-            <div className="flex gap-10 pt-4 border-t border-theme">
-              {STATS.map((stat) => (
-                <div key={stat.value}>
-                  <div className="text-3xl font-bold gradient-text">{stat.value}</div>
-                  <div className="text-sm text-theme-muted mt-0.5">{t(stat.label)}</div>
-                </div>
-              ))}
-            </div>
+            <motion.span 
+              className="gradient-text inline-block"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+            >
+              oftware
+            </motion.span>
           </div>
+          <motion.span
+            className="inline-block ml-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
+          >
+            {parts[1]}
+          </motion.span>
+        </h1>
 
-          {/* ── Columna derecha: Tarjetas flotantes ── */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-80 h-80 bg-brand-500/15 rounded-full blur-[80px] animate-pulse" />
-            </div>
-
-            <div className="relative w-full max-w-md space-y-4">
-              {FLOAT_CARDS.map((card, idx) => (
-                <div
-                  key={idx}
-                  className="glass-card rounded-2xl p-5 flex items-center gap-4
-                             hover:border-theme-active transition-all duration-300 animate-float"
-                  style={{ animationDelay: `${idx * 0.8}s` }}
-                >
-                  <div className={`w-12 h-12 bg-gradient-to-br ${card.color}
-                                   rounded-xl flex items-center justify-center
-                                   shadow-lg shadow-brand-500/25 flex-shrink-0`}>
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-theme text-sm">{t(card.label)}</div>
-                    <div className="text-xs text-theme-muted mt-0.5">{t(card.sub)}</div>
-                  </div>
-                  <div className="ml-auto flex items-center gap-1.5 flex-shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs text-theme-muted">Live</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
+        <motion.p 
+          className="text-lg text-theme-secondary leading-relaxed max-w-2xl mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3, duration: 0.6 }}
+        >
+          {t(COMPANY.description)}
+        </motion.p>
+ 
+        {/* CTAs */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-4 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+        >
+          <Button href={HERO_CTAS.primary.href} size="md">
+            {t(HERO_CTAS.primary.label)}
+            <ChevronRight className="w-5 h-5" />
+          </Button>
+          <Button href={HERO_CTAS.secondary.href} variant="secondary" size="md">
+            {t(HERO_CTAS.secondary.label)}
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

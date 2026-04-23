@@ -44,29 +44,29 @@
 /* ── Variables de tema OSCURO ── */
 [data-theme="dark"] {
   /* Fondos */
-  --bg-base:        rgb(18, 3, 26);
-  --bg-surface:     rgb(25, 5, 36);
-  --bg-card:        rgba(18, 3, 26, 0.60);
-  --bg-card-hover:  rgba(97, 15, 143, 0.08);
-  --nav-bg:         rgba(18, 3, 26, 0.85);
-  --mobile-menu-bg: rgba(25, 5, 36, 0.97);
-  --section-alt-bg: linear-gradient(to bottom, rgb(18,3,26), rgb(25,5,36), rgb(18,3,26));
+  --bg-base:        rgb(10, 2, 15);
+  --bg-surface:     rgb(15, 4, 22);
+  --bg-card:        rgba(30, 10, 50, 0.50);
+  --bg-card-hover:  rgba(97, 15, 143, 0.15);
+  --nav-bg:         rgba(10, 2, 15, 0.85);
+  --mobile-menu-bg: rgba(18, 3, 26, 0.97);
+  --section-alt-bg: linear-gradient(to bottom, rgb(10, 2, 15), rgb(18, 3, 26), rgb(10, 2, 15));
 
   /* Texto */
   --text-primary:   rgba(255, 255, 255, 0.95);
-  --text-secondary: rgba(255, 255, 255, 0.58);
-  --text-muted:     rgba(255, 255, 255, 0.32);
-  --text-nav:       rgba(255, 255, 255, 0.68);
+  --text-secondary: rgba(255, 255, 255, 0.70);
+  --text-muted:     rgba(255, 255, 255, 0.40);
+  --text-nav:       rgba(255, 255, 255, 0.75);
 
   /* Bordes */
-  --border-subtle:  rgba(97, 15, 143, 0.22);
-  --border-brand:   rgba(97, 15, 143, 0.35);
-  --border-active:  rgba(130, 30, 180, 0.55);
+  --border-subtle:  rgba(130, 30, 180, 0.25);
+  --border-brand:   rgba(130, 30, 180, 0.40);
+  --border-active:  rgba(170, 70, 210, 0.65);
 
   /* Sombras */
-  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.30);
-  --shadow-hover:   0 8px 40px rgba(97, 15, 143, 0.25);
-  --glow-color:     rgba(97, 15, 143, 0.35);
+  --shadow-card:    0 10px 40px rgba(0, 0, 0, 0.50);
+  --shadow-hover:   0 15px 50px rgba(130, 30, 180, 0.25);
+  --glow-color:     rgba(130, 30, 180, 0.45);
 
   /* Grid decorativo */
   --grid-color:     rgba(97, 15, 143, 0.04);

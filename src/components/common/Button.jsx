@@ -38,7 +38,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <a href={href} onClick={onClick} className={classes} {...props}>
         {children}
       </a>
     );

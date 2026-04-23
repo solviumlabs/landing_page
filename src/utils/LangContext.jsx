@@ -1,5 +1,5 @@
 // src/utils/LangContext.jsx
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const LangContext = createContext(null);
 
@@ -9,7 +9,11 @@ const LangContext = createContext(null);
  *   t({ es: 'Hola', en: 'Hi'}) → 'Hola' o 'Hi' según lang
  */
 export function LangProvider({ children }) {
-  const [lang, setLang] = useState('es'); // ← por defecto: español
+  const [lang, setLang] = useState(() => localStorage.getItem('solvium_lang') || 'es');
+
+  useEffect(() => {
+    localStorage.setItem('solvium_lang', lang);
+  }, [lang]);
 
   const toggle = () => setLang((l) => (l === 'es' ? 'en' : 'es'));
 

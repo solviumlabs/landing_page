@@ -2,9 +2,11 @@
 
 export const NAV_LINKS = [
   { label: { es: 'Servicios',   en: 'Services' },     href: '#servicios' },
-  { label: { es: 'Proceso',     en: 'Process' },       href: '#proceso' },
-  { label: { es: 'Tecnologías', en: 'Technologies' },  href: '#tecnologias' },
-  { label: { es: 'Contacto',    en: 'Contact' },       href: '#contacto' },
+  { label: { es: 'Proyectos',   en: 'Projects' },     href: '#proyectos' },
+  { label: { es: 'Proceso',     en: 'Process' },      href: '#proceso' },
+  { label: { es: 'Tecnologías', en: 'Technologies' }, href: '#tecnologias' },
+  { label: { es: 'Nosotros',    en: 'About' },        href: '#nosotros' },
+  { label: { es: 'FAQ',         en: 'FAQ' },          href: '#faq' },
 ];
 
 export const NAVBAR_CTA = {
@@ -25,22 +27,21 @@ export const FOOTER_COLUMNS = [
   {
     title: { es: 'Empresa',  en: 'Company' },
     items: [
-      { label: { es: 'Sobre Nosotros', en: 'About Us' }, href: '#' },
-      { label: { es: 'Equipo',         en: 'Team' },     href: '#' },
-      { label: { es: 'Blog',           en: 'Blog' },     href: '#' },
+      { label: { es: 'Sobre Nosotros', en: 'About Us' }, href: '#nosotros' },
+      { label: { es: 'Proyectos',      en: 'Projects' }, href: '#proyectos' },
+      { label: { es: 'Proceso',        en: 'Process' },  href: '#proceso' },
     ],
   },
   {
     title: { es: 'Soporte', en: 'Support' },
     items: [
-      { label: { es: 'Documentación', en: 'Documentation' }, href: '#' },
-      { label: { es: 'FAQ',           en: 'FAQ' },            href: '#' },
-      { label: { es: 'Contacto',      en: 'Contact' },        href: '#contacto' },
+      { label: { es: 'Preguntas Frecuentes', en: 'FAQ' }, href: '#faq' },
+      { label: { es: 'Contacto',             en: 'Contact' }, href: '#contacto' },
     ],
   },
 ];
 
 export const FOOTER_COPY = {
   tagline:   { es: 'Transformando ideas en realidad digital', en: 'Transforming ideas into digital reality' },
-  copyright: { es: 'Todos los derechos reservados. Hecho con 💜 en México.', en: 'All rights reserved. Made with 💜 in Mexico.' },
+  copyright: { es: 'Todos los derechos reservados. Hecho en México.', en: 'All rights reserved. Made in Mexico.' },
 };

@@ -1,18 +1,18 @@
 // src/data/meta.js — Datos globales de la empresa (SSOT + bilingüe)
 
 export const COMPANY = {
-  name: 'Solvium',
+  name: 'Solvium Labs',
   subtitle: {
     es: 'Desarrollo de Software Profesional',
     en: 'Professional Software Development',
   },
   tagline: {
-    es: 'Transformamos ideas en software que escala',
-    en: 'We transform ideas into software that scales',
+    es: 'Soluciones de software de otro nivel',
+    en: 'Next-level software solutions',
   },
   description: {
-    es: 'Empresa especializada en SaaS, sistemas personalizados y APIs. Construimos soluciones tecnológicas escalables con las mejores prácticas y tecnologías modernas.',
-    en: 'Company specialized in SaaS, custom systems and APIs. We build scalable technological solutions using best practices and modern technologies.',
+    es: 'SaaS, APIs y sistemas personalizados diseñados para escalar. Tu visión, nuestra ingeniería.',
+    en: 'SaaS, APIs, and custom systems built to scale. Your vision, our engineering.',
   },
   email: 'jalejandrogtzrdz@gmail.com',
   phone: '+52 449 428 0598',
@@ -36,6 +36,6 @@ export const HERO_CTAS = {
   },
   secondary: {
     label: { es: 'Ver Casos de Éxito',   en: 'View Case Studies' },
-    href: '#servicios',
+    href: '#proyectos',
   },
 };

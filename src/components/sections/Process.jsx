@@ -13,7 +13,7 @@ export default function Process() {
   return (
     <SectionWrapper id="proceso" className="bg-section-alt">
       {/* Header */}
-      <div className="text-center mb-16 space-y-4">
+      <div className="text-center mb-10 md:mb-12 space-y-4">
         <Badge icon={GitBranch}>{t(PROCESS_SECTION.badge)}</Badge>
         <h2 className="text-4xl lg:text-5xl font-extrabold text-theme">
           {t(PROCESS_SECTION.title)}{' '}
@@ -37,12 +37,12 @@ export default function Process() {
 
           return (
             <div key={step.step} className="relative group">
-              <div className="glass-card rounded-2xl p-7 h-full hover:glass-card-active
+              <div className="glass-card rounded-2xl p-6 h-full hover:glass-card-active
                               transition-all duration-300 relative z-10">
 
                 {/* Número decorativo */}
-                <div className="text-6xl font-black text-brand-500/10
-                                group-hover:text-brand-500/20 transition-all duration-300 leading-none mb-4">
+                <div className="text-6xl font-black text-brand-500/25
+                                group-hover:text-brand-500/45 transition-all duration-300 leading-none mb-3">
                   {step.step}
                 </div>
 
