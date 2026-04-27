@@ -42,6 +42,6 @@ export const FOOTER_COLUMNS = [
 ];
 
 export const FOOTER_COPY = {
-  tagline:   { es: 'Transformando ideas en realidad digital', en: 'Transforming ideas into digital reality' },
+  tagline:   { es: 'Soluciones más allá del código.', en: 'Solutions beyond code.' },
   copyright: { es: 'Todos los derechos reservados. Hecho en México.', en: 'All rights reserved. Made in Mexico.' },
 };

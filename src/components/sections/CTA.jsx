@@ -1,5 +1,5 @@
 // src/components/sections/CTA.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
 import { COMPANY } from '@data/meta';
 import { useLang } from '@utils/LangContext';
@@ -21,6 +21,42 @@ export default function CTA() {
   const { t, lang } = useLang();
   const titleLines = t(CTA_COPY.title).split('\n');
   const [formStatus, setFormStatus] = useState('idle'); // idle, submitting, success
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    const lastContact = localStorage.getItem('solvium_last_contact');
+    if (lastContact) {
+      const timePassed = Math.floor((Date.now() - parseInt(lastContact)) / 1000);
+      if (timePassed < 300) { // 5 minutos = 300 segundos
+        setCooldown(300 - timePassed);
+      } else {
+        localStorage.removeItem('solvium_last_contact');
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    let timer = null;
+    if (cooldown > 0) {
+      timer = setInterval(() => {
+        setCooldown(prev => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            localStorage.removeItem('solvium_last_contact');
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [cooldown]);
+
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
 
   const getWhatsAppLink = () => {
     const phone = COMPANY.phone.replace(/\D/g, '');
@@ -28,13 +64,39 @@ export default function CTA() {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
-    // Formulario funcional simulación
-    setTimeout(() => {
-      setFormStatus('success');
-    }, 1500);
+    
+    // Obtener los datos del formulario
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xrervvgk', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset(); // Limpiar el formulario
+        localStorage.setItem('solvium_last_contact', Date.now().toString());
+        setCooldown(300); // Iniciar cooldown de 5 minutos
+      } else {
+        // Si hay error, regresamos al estado inicial
+        console.error("Error al enviar el formulario");
+        setFormStatus('idle');
+        alert("Hubo un problema enviando tu mensaje. Intenta nuevamente.");
+      }
+    } catch (error) {
+      console.error("Error de red", error);
+      setFormStatus('idle');
+      alert("Error de red. Revisa tu conexión e intenta nuevamente.");
+    }
   };
 
   return (
@@ -109,6 +171,14 @@ export default function CTA() {
                   {t(CTA_COPY.form.sendAnother)}
                 </button>
               </div>
+            ) : cooldown > 0 ? (
+              <div className="h-full flex flex-col items-center justify-center text-center space-y-4 animate-fade-in-up py-10">
+                <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-2 border border-white/10 shadow-inner">
+                  <span className="text-3xl font-mono font-bold text-brand-300">{formatTime(cooldown)}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">{t(CTA_COPY.form.cooldownMsg)}</h3>
+                <p className="text-white/70">{t(CTA_COPY.form.waitText)}</p>
+              </div>
             ) : (
               <div>
                 <h3 className="text-xl font-bold text-white mb-6">
@@ -120,7 +190,8 @@ export default function CTA() {
                       <label className="text-xs font-semibold text-white/70">{t(CTA_COPY.form.name)}</label>
                       <input 
                         required 
-                        type="text" 
+                        type="text"
+                        name="name"
                         className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-brand-400 focus:bg-white/10 outline-none transition-all text-white placeholder-white/30"
                         placeholder="Ej. Juan Pérez"
                       />
@@ -129,6 +200,7 @@ export default function CTA() {
                       <label className="text-xs font-semibold text-white/70">{t(CTA_COPY.form.company)}</label>
                       <input 
                         type="text" 
+                        name="company"
                         className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-brand-400 focus:bg-white/10 outline-none transition-all text-white placeholder-white/30"
                         placeholder="Ej. Industrias Acme"
                       />
@@ -139,7 +211,8 @@ export default function CTA() {
                     <label className="text-xs font-semibold text-white/70">{t(CTA_COPY.form.email)}</label>
                     <input 
                       required 
-                      type="email" 
+                      type="email"
+                      name="email"
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-brand-400 focus:bg-white/10 outline-none transition-all text-white placeholder-white/30"
                       placeholder="correo@empresa.com"
                     />
@@ -150,6 +223,7 @@ export default function CTA() {
                     <textarea 
                       required 
                       rows="3"
+                      name="message"
                       className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-brand-400 focus:bg-white/10 outline-none transition-all resize-none text-white placeholder-white/30"
                       placeholder="Cuéntanos brevemente tu necesidad..."
                     />

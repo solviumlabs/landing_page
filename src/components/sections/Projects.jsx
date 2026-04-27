@@ -30,7 +30,11 @@ export default function Projects() {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -350 : 350;
+      // Calculamos la distancia exacta entre el centro de cada tarjeta (ancho + gap de 24px)
+      const isMobile = window.innerWidth < 768;
+      const cardDistance = isMobile ? (window.innerWidth * 0.85) + 24 : 424; // 400px + 24px gap
+      
+      const scrollAmount = direction === 'left' ? -cardDistance : cardDistance;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };

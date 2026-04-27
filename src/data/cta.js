@@ -22,6 +22,8 @@ export const CTA_COPY = {
     sending: { es: 'Enviando...',                           en: 'Sending...' },
     success: { es: '¡Correo enviado con éxito!',            en: 'Email sent successfully!' },
     successSub:{ es:'Te contactaremos en menos de 24 horas.',en:'We will contact you in less than 24 hours.'},
-    sendAnother:{es:'Enviar otro correo',                   en: 'Send another email' }
+    sendAnother:{es:'Enviar otro correo',                   en: 'Send another email' },
+    cooldownMsg:{es:'Por favor espera',                     en: 'Please wait' },
+    waitText:   {es:'para enviar otro mensaje.',            en: 'to send another message.'}
   }
 };

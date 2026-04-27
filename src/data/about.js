@@ -5,8 +5,8 @@ export const ABOUT_SECTION = {
   title: { es: 'No somos una fábrica de software', en: 'We are not a software factory' },
   highlight: { es: 'Somos tu socio tecnológico', en: 'We are your tech partner' },
   description: {
-    es: 'En Solvium, no creemos en las soluciones genéricas ni en el código "al peso". Somos un equipo boutique de ingenieros senior con profunda experiencia en el sector industrial, logístico y empresarial. Desarrollamos desde México con calidad de Silicon Valley.',
-    en: 'At Solvium, we don\'t believe in generic solutions or "by the pound" code. We are a boutique team of senior engineers with deep experience in the industrial, logistics, and enterprise sectors. We develop from Mexico with Silicon Valley quality.'
+    es: 'En Solvium, no creemos en las soluciones genéricas ni en el código "al peso". Somos un equipo de ingenieros con profunda experiencia en el sector industrial, logístico y empresarial. Desarrollamos desde México con calidad de Silicon Valley.',
+    en: 'At Solvium, we don\'t believe in generic solutions or "by the pound" code. We are a team of engineers with deep experience in the industrial, logistics, and enterprise sectors. We develop from Mexico with Silicon Valley quality.'
   },
   stats: [
     { value: '100%', label: { es: 'In-House (Cero Outsourcing)', en: 'In-House (Zero Outsourcing)' } },

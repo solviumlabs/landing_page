@@ -14,12 +14,14 @@ export const COMPANY = {
     es: 'SaaS, APIs y sistemas personalizados diseñados para escalar. Tu visión, nuestra ingeniería.',
     en: 'SaaS, APIs, and custom systems built to scale. Your vision, our engineering.',
   },
-  email: 'jalejandrogtzrdz@gmail.com',
+  email: 'solvium.lab@gmail.com',
   phone: '+52 449 428 0598',
   location: 'México',
   social: {
-    linkedin: 'https://linkedin.com/company/solvium',
-    github:   'https://github.com/solvium',
+    github:   'https://github.com/solviumlabs',
+    instagram: 'https://www.instagram.com/solvium.labs',
+    facebook: 'https://www.facebook.com/profile.php?id=61588709455833&locale=es_LA',
+    tiktok:   'https://www.tiktok.com/@solviumlabs',
   },
 };
 
