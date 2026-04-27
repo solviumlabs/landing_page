@@ -2,7 +2,7 @@
 
 export const ABOUT_SECTION = {
   badge: { es: 'ADN Solvium', en: 'Solvium DNA' },
-  title: { es: 'No somos una fábrica de software', en: 'We are not a software factory' },
+  title: { es: 'No somos una fábrica de software.', en: 'We are not a software factory' },
   highlight: { es: 'Somos tu socio tecnológico', en: 'We are your tech partner' },
   description: {
     es: 'En Solvium, no creemos en las soluciones genéricas ni en el código "al peso". Somos un equipo de ingenieros con profunda experiencia en el sector industrial, logístico y empresarial. Desarrollamos desde México con calidad de Silicon Valley.',
