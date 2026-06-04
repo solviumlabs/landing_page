@@ -17,7 +17,7 @@ export default function FAQ() {
   return (
     <SectionWrapper id="faq" className="bg-theme">
       {/* Header */}
-      <div className="text-center mb-16 space-y-4">
+      <div className="text-center mb-16 space-y-4 reveal-up">
         <Badge icon={HelpCircle}>{t(FAQ_SECTION.badge)}</Badge>
         <h2 className="text-4xl lg:text-5xl font-extrabold text-theme">
           {t(FAQ_SECTION.title)}{' '}
@@ -29,14 +29,14 @@ export default function FAQ() {
       </div>
 
       {/* FAQ Accordion */}
-      <div className="max-w-3xl mx-auto space-y-4">
+      <div className="max-w-3xl mx-auto space-y-4 reveal-stagger">
         {FAQS.map((faq) => {
           const isOpen = openId === faq.id;
 
           return (
             <div 
               key={faq.id} 
-              className={`glass-card rounded-2xl border transition-all duration-300 overflow-hidden
+              className={`reveal-item glass-card rounded-2xl border transition-all duration-300 overflow-hidden
                 ${isOpen ? 'border-brand-500 shadow-md shadow-brand-500/10' : 'border-theme hover:border-brand-500/30'}`}
             >
               <button

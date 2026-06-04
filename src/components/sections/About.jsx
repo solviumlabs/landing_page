@@ -16,7 +16,7 @@ export default function About() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
         {/* Left Col: Text */}
-        <div className="space-y-8 relative z-10">
+        <div className="space-y-8 relative z-10 reveal-up">
           <div className="space-y-4">
             <Badge icon={Users}>{t(ABOUT_SECTION.badge)}</Badge>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-theme leading-tight">
@@ -42,7 +42,7 @@ export default function About() {
         </div>
 
         {/* Right Col: Visual/Image Placeholder */}
-        <div className="relative z-10 lg:h-[500px] flex items-center justify-center">
+        <div className="relative z-10 lg:h-[500px] flex items-center justify-center reveal-fade">
           {/* Main glass card acting as an image placeholder or abstract visual */}
           <div className="relative w-full max-w-md aspect-square rounded-3xl glass-card overflow-hidden border-2 border-brand-500/20 shadow-2xl flex items-center justify-center bg-gradient-to-br from-brand-500/10 to-transparent">
             {/* Inner decorative elements */}

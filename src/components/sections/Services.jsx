@@ -34,7 +34,7 @@ export default function Services() {
   return (
     <SectionWrapper id="servicios">
       {/* Header */}
-      <div className="text-center mb-16 space-y-4">
+      <div className="text-center mb-16 space-y-4 reveal-up">
         <Badge icon={Layers}>{t(SERVICES_SECTION.badge)}</Badge>
         <h2 className="text-4xl lg:text-5xl font-extrabold text-theme">
           {t(SERVICES_SECTION.title)}{' '}
@@ -46,7 +46,7 @@ export default function Services() {
       </div>
 
       {/* Grid de tarjetas */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
         {SERVICES.map((service, idx) => {
           const Icon = ICON_MAP[service.icon] ?? Code2;
           const isActive = active === idx;
@@ -56,7 +56,7 @@ export default function Services() {
             <div
               key={service.id}
               onMouseEnter={() => setActive(idx)}
-              className={`group relative rounded-2xl p-8 transition-all duration-300 cursor-default glass-card flex flex-col
+              className={`reveal-item group relative rounded-2xl p-8 transition-all duration-300 cursor-default glass-card flex flex-col
                 ${isActive ? 'glass-card-active scale-[1.02]' : ''}`}
             >
               <div className="flex-grow">

@@ -23,7 +23,12 @@ export const PROJECTS = [
       es: 'Transformación digital para fabricante industrial. Plataforma diseñada para captar clientes finales, expandir la red de distribuidores y centralizar la gestión de vacantes y proveedores.',
       en: 'Digital transformation for an industrial manufacturer. Platform designed to attract end customers, expand the distribution network, and centralize vacancy and supplier management.',
     },
-    image: '/projects/plasmac.png',
+    images: [
+      '/projects/plasmac_1.png',
+      '/projects/plasmac_2.png',
+      '/projects/plasmac_3.png'
+    ],
+    image: '/projects/plasmac_1.png',
     stats: [
       { value: 'B2B/B2C', label: { es: 'Estrategia', en: 'Strategy' } },
       { value: 'Portal', label: { es: 'Distribuidores', en: 'Distributors' } },
@@ -42,7 +47,12 @@ export const PROJECTS = [
       es: 'Plataforma digital especializada en sistemas de aire, contra incendio y soldadura. Diseñada para mostrar evidencia de obra y facilitar el cierre de contratos de alta ingeniería.',
       en: 'Digital platform specialized in air systems, fire protection, and welding. Designed to showcase work evidence and facilitate closing high-engineering contracts.',
     },
-    image: '/projects/insiic.png',
+    images: [
+      '/projects/insiic_1.png',
+      '/projects/insiic_2.png',
+      '/projects/insiic_3.png'
+    ],
+    image: '/projects/insiic_1.png',
     stats: [
       { value: '3', label: { es: 'Líneas de Negocio', en: 'Business Lines' } },
       { value: 'SEO', label: { es: 'Posicionado', en: 'Ranked' } },

@@ -13,7 +13,7 @@ export default function Process() {
   return (
     <SectionWrapper id="proceso" className="bg-section-alt">
       {/* Header */}
-      <div className="text-center mb-10 md:mb-12 space-y-4">
+      <div className="text-center mb-10 md:mb-12 space-y-4 reveal-up">
         <Badge icon={GitBranch}>{t(PROCESS_SECTION.badge)}</Badge>
         <h2 className="text-4xl lg:text-5xl font-extrabold text-theme">
           {t(PROCESS_SECTION.title)}{' '}
@@ -25,7 +25,7 @@ export default function Process() {
       </div>
 
       {/* Pasos */}
-      <div className="grid md:grid-cols-4 gap-6 relative">
+      <div className="grid md:grid-cols-4 gap-6 relative reveal-stagger">
 
         {/* Línea conectora de fondo (desktop) */}
         <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px
@@ -36,7 +36,7 @@ export default function Process() {
           const isLast = idx === PROCESS_STEPS.length - 1;
 
           return (
-            <div key={step.step} className="relative group">
+            <div key={step.step} className="relative group reveal-item">
               <div className="glass-card rounded-2xl p-6 h-full hover:glass-card-active
                               transition-all duration-300 relative z-10">
 

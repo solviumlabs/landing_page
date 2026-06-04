@@ -22,7 +22,7 @@ export default function TechStack() {
   return (
     <SectionWrapper id="tecnologias">
       {/* Header */}
-      <div className="text-center mb-16 space-y-4">
+      <div className="text-center mb-16 space-y-4 reveal-up">
         <Badge icon={Cpu}>{t(TECH_SECTION.badge)}</Badge>
         <h2 className="text-4xl lg:text-5xl font-extrabold text-theme">
           {t(TECH_SECTION.title)}{' '}
@@ -67,9 +67,9 @@ export default function TechStack() {
       </div>
 
       {/* Grid por categorías */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 reveal-stagger">
         {Object.keys(TECH_CATEGORIES).map((cat) => (
-          <div key={cat} className="glass-card rounded-2xl p-6">
+          <div key={cat} className="glass-card rounded-2xl p-6 reveal-item">
             <h4 className="text-xs font-bold uppercase tracking-widest text-brand-500 mb-4">
               {t(TECH_CATEGORIES[cat])}
             </h4>

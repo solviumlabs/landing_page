@@ -101,7 +101,7 @@ export default function CTA() {
 
   return (
     <SectionWrapper id="contacto" className="py-12">
-      <div className="max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden relative shadow-2xl">
+      <div className="max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden relative shadow-2xl reveal-up">
         
         {/* Fondo principal morado oscuro para todo el contenedor */}
         <div className="absolute inset-0 bg-[#1A0B2E]" />

@@ -8,7 +8,7 @@ export default function Clients() {
   const doubledClients = [...CLIENTS, ...CLIENTS];
 
   return (
-    <section className="py-12 bg-theme border-y border-theme relative overflow-hidden">
+    <section className="py-12 bg-theme border-y border-theme relative overflow-hidden reveal-fade">
       <div className="max-w-7xl mx-auto px-6 mb-8">
         <p className="text-center text-xs font-bold tracking-widest text-theme-muted uppercase">
           {t(CLIENTS_SECTION.label)}

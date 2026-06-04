@@ -7,6 +7,80 @@ import { COMPANY } from '@data/meta';
 import { useTheme } from '@utils/ThemeContext';
 import { useLang }  from '@utils/LangContext';
 
+// Iconos de Banderas en SVG de alta calidad y ligeros
+const SpainFlag = ({ className = "w-5 h-3.5" }) => (
+  <svg className={className} viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg">
+    <rect width="750" height="500" fill="#c60b1e" />
+    <rect y="125" width="750" height="250" fill="#ffc400" />
+    <g transform="translate(180, 250) scale(0.65)">
+      <path d="M -50 -70 L 50 -70 L 50 10 A 50 50 0 0 1 -50 10 Z" fill="#c60b1e" stroke="#ffc400" strokeWidth="6" />
+      <path d="M -40 -60 L 40 -60 L 40 10 A 40 40 0 0 1 -40 10 Z" fill="#ffc400" />
+      <path d="M -30 -85 L -35 -70 L 35 -70 L 30 -85 L 12 -75 L 0 -95 L -12 -75 Z" fill="#c60b1e" stroke="#ffc400" strokeWidth="4" />
+      <circle cx="0" cy="-95" r="4" fill="#ffc400" />
+    </g>
+  </svg>
+);
+
+const USFlag = ({ className = "w-5 h-3.5" }) => (
+  <svg className={className} viewBox="0 0 7410 3900" xmlns="http://www.w3.org/2000/svg">
+    <rect width="7410" height="3900" fill="#b22234"/>
+    <path d="M0,300h7410M0,900h7410M0,1500h7410M0,2100h7410M0,2700h7410M0,3300h7410" stroke="#fff" strokeWidth="300"/>
+    <rect width="2964" height="2100" fill="#3c3b6e"/>
+    <g fill="#fff">
+      <circle cx="296" cy="175" r="60" />
+      <circle cx="888" cy="175" r="60" />
+      <circle cx="1480" cy="175" r="60" />
+      <circle cx="2072" cy="175" r="60" />
+      <circle cx="2664" cy="175" r="60" />
+      <circle cx="592" cy="350" r="60" />
+      <circle cx="1184" cy="350" r="60" />
+      <circle cx="1776" cy="350" r="60" />
+      <circle cx="2368" cy="350" r="60" />
+      <circle cx="296" cy="525" r="60" />
+      <circle cx="888" cy="525" r="60" />
+      <circle cx="1480" cy="525" r="60" />
+      <circle cx="2072" cy="525" r="60" />
+      <circle cx="2664" cy="525" r="60" />
+      <circle cx="592" cy="700" r="60" />
+      <circle cx="1184" cy="700" r="60" />
+      <circle cx="1776" cy="700" r="60" />
+      <circle cx="2368" cy="700" r="60" />
+      <circle cx="296" cy="875" r="60" />
+      <circle cx="888" cy="875" r="60" />
+      <circle cx="1480" cy="875" r="60" />
+      <circle cx="2072" cy="875" r="60" />
+      <circle cx="2664" cy="875" r="60" />
+      <circle cx="592" cy="1050" r="60" />
+      <circle cx="1184" cy="1050" r="60" />
+      <circle cx="1776" cy="1050" r="60" />
+      <circle cx="2368" cy="1050" r="60" />
+      <circle cx="296" cy="1225" r="60" />
+      <circle cx="888" cy="1225" r="60" />
+      <circle cx="1480" cy="1225" r="60" />
+      <circle cx="2072" cy="1225" r="60" />
+      <circle cx="2664" cy="1225" r="60" />
+      <circle cx="592" cy="1400" r="60" />
+      <circle cx="1184" cy="1400" r="60" />
+      <circle cx="1776" cy="1400" r="60" />
+      <circle cx="2368" cy="1400" r="60" />
+      <circle cx="296" cy="1575" r="60" />
+      <circle cx="888" cy="1575" r="60" />
+      <circle cx="1480" cy="1575" r="60" />
+      <circle cx="2072" cy="1575" r="60" />
+      <circle cx="2664" cy="1575" r="60" />
+      <circle cx="592" cy="1750" r="60" />
+      <circle cx="1184" cy="1750" r="60" />
+      <circle cx="1776" cy="1750" r="60" />
+      <circle cx="2368" cy="1750" r="60" />
+      <circle cx="296" cy="1925" r="60" />
+      <circle cx="888" cy="1925" r="60" />
+      <circle cx="1480" cy="1925" r="60" />
+      <circle cx="2072" cy="1925" r="60" />
+      <circle cx="2664" cy="1925" r="60" />
+    </g>
+  </svg>
+);
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -120,14 +194,13 @@ export default function Navbar() {
               <button
                 onClick={toggleLang}
                 aria-label="Toggle language"
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold
-                           border border-theme hover:border-brand-400
-                           text-theme-secondary hover:text-brand-500
-                           transition-all duration-200"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg
+                           border border-theme hover:border-brand-400/50 bg-theme-muted/10
+                           transition-all duration-200 cursor-pointer"
               >
-                <span className={lang === 'es' ? 'text-brand-500' : 'text-theme-muted'}>ES</span>
-                <span className="text-theme-muted">/</span>
-                <span className={lang === 'en' ? 'text-brand-500' : 'text-theme-muted'}>EN</span>
+                <SpainFlag className={`w-5 h-3.5 rounded-sm shadow-sm transition-all duration-200 ${lang === 'es' ? 'opacity-100 scale-110' : 'opacity-40 hover:opacity-75 grayscale'}`} />
+                <span className="text-[10px] text-theme-muted font-bold">/</span>
+                <USFlag className={`w-5 h-3.5 rounded-sm shadow-sm transition-all duration-200 ${lang === 'en' ? 'opacity-100 scale-110' : 'opacity-40 hover:opacity-75 grayscale'}`} />
               </button>
 
               {/* Toggle tema */}
@@ -156,13 +229,19 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center gap-2">
               <button
                 onClick={toggleLang}
-                className="px-2 py-1 rounded text-xs font-bold border border-theme
-                           text-theme-secondary hover:text-brand-500 transition-colors"
+                aria-label="Toggle language"
+                className="w-8 h-8 rounded-lg border border-theme flex items-center justify-center
+                           bg-theme-muted/10 transition-colors"
               >
-                {lang.toUpperCase()}
+                {lang === 'es' ? (
+                  <SpainFlag className="w-5 h-3.5 rounded-sm shadow-sm" />
+                ) : (
+                  <USFlag className="w-5 h-3.5 rounded-sm shadow-sm" />
+                )}
               </button>
               <button
                 onClick={toggleTheme}
+                aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                 className="w-8 h-8 rounded-lg border border-theme flex items-center justify-center
                            text-theme-secondary hover:text-brand-500 transition-colors"
               >
