@@ -13,6 +13,30 @@ export const PROJECTS_SECTION = {
 
 export const PROJECTS = [
   {
+    id: 'utopic-store',
+    title: 'Utopic Store',
+    shortDesc: {
+      es: 'Tienda en línea premium minimalista.',
+      en: 'Premium minimalistic online store.',
+    },
+    longDesc: {
+      es: 'Plataforma diseñada para ofrecer una experiencia de compra moderna, presentar colecciones exclusivas y facilitar la atención personalizada a través de canales digitales, sentando las bases para la expansión futura del catálogo y la operación comercial.',
+      en: 'The platform was designed to deliver a modern shopping experience, showcase exclusive collections, and enable personalized customer service through digital channels, laying the foundation for future catalog and business expansion.',
+    },
+    images: [
+      '/projects/utopic_1.png',
+      '/projects/utopic_2.png',
+      '/projects/utopic_3.png'
+    ],
+    image: '/projects/utopic_1.png',
+    stats: [
+      { value: 'Oversize', label: { es: 'Colección', en: 'Collection' } },
+      { value: 'Premium', label: { es: 'Calidad', en: 'Quality' } },
+      { value: 'WhatsApp', label: { es: 'Canal de Venta', en: 'Sales Channel' } }
+    ],
+    link: 'https://utopicstore.com'
+  },
+  {
     id: 'landing-plasmac',
     title: 'Plasmac Landing Page',
     shortDesc: {
